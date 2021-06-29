@@ -2,8 +2,8 @@
 
 upload-env() {
     remote_url=$(git remote get-url origin)
+    echo "/$1" >> .gitignore
     cd $1
-    echo "/$1" >> ../.gitignore
     git init --initial-branch=env-$1
     git add .
     git config user.name PineAG
