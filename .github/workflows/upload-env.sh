@@ -10,7 +10,7 @@ upload-env() {
     git config user.email pein.agail@gmail.com
     git commit -m "Init docker-compose.yml for $1" --allow-empty
     git remote add origin $remote_url
-    git push origin env-python
+    git push origin env-$1
     cd ..
 }
 
