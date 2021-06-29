@@ -25,12 +25,4 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - name: Push code to branch
-        run: |
-          remote_url=$(git remote get-url origin)
-          cd python
-          echo "/python" >> ../.gitignore
-          git init --initial-branch=env-python
-          git add .
-          git commit -m 'Init docker-compose.yml' --allow-empty
-          git remote add origin $remote_url
-          git push origin env-python
+        run: ./.github/workflows/upload-env.sh
