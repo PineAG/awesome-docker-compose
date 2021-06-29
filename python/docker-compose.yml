@@ -1,0 +1,10 @@
+version: '3'
+services:
+  app:
+    image: python:3.9-slim
+    volumes:
+    - '.:/app'  # Mount working dir
+    - '/var/cache/awesome-docker-compose-envs/python:/root/.cache/pip'  # Cache your pip deps
+    working_dir: '/app'
+    command: [./scripts/run-python, main.py]  # Run your script in venv
+
