@@ -25,4 +25,4 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - name: Push code to branch
-        run: ./.github/workflows/upload-env.sh
+        run: ./.github/workflows/upload-env.sh "${{ secrets.GH_TOKEN}}"
