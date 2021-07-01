@@ -1,0 +1,17 @@
+version: '3'
+services:
+    rclone:
+        image: rclone/rclone:latest
+        restart: always
+        mem_limit: 100m
+        volumes:
+            - './config:/config/rclone'
+            - './data:/data'
+            - './logs:/logs'
+            - '/etc/passwd:/etc/passwd:ro'
+            - '/etc/group:/etc/group:ro'
+        devices:
+            - '/dev/fuse:/dev/fuse'
+        cap_add: [SYS_ADMIN]
+        security_opt: ['apparmor:unconfined']
+        user: '1000:1000'
