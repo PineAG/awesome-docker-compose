@@ -10,5 +10,7 @@ services:
         user: root
         cap_add: [SYS_ADMIN]
         security_opt: ['apparmor:unconfined']
+        ports: 
+            - '8000:8000'
         privileged: true
         command: [/scripts/launch.sh]
