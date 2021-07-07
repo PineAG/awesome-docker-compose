@@ -1,0 +1,16 @@
+version: '3'
+services: 
+    globalprotect:
+        build: ./docker
+        volumes: 
+            - './scripts:/scripts'
+        working_dir: '/scripts'
+        devices: 
+            - '/dev/net/tun:/dev/net/tun'
+        user: root
+        cap_add: [SYS_ADMIN]
+        security_opt: ['apparmor:unconfined']
+        ports: 
+            - '8000:8000'
+        privileged: true
+        command: [/scripts/launch.sh]
